@@ -18,7 +18,7 @@ const client = new MongoClient(uri, {
 client.connect((err) => {
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
-  //   client.close();
+  //   client.close();f
 });
 
 async function server() {
@@ -36,7 +36,7 @@ async function server() {
     app.get("/watchCollection", async (req, res) => {
       const query = watchCollection.find({});
       const watches = await query.toArray();
-      //   console.log(watches);
+      console.log(watches);
       res.json(watches);
     });
 
