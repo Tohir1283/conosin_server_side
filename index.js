@@ -65,6 +65,12 @@ async function server() {
       res.json(result);
     });
 
+    app.get("/users", async (req, res) => {
+      const query = userCollection.find({});
+      const users = await query.toArray();
+      res.json(users);
+    });
+
     //   Post orders to database
     app.post("/orders", async (req, res) => {
       const order = req.body;
